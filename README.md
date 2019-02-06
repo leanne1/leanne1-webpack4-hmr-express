@@ -11,7 +11,3 @@ Boilerplate for a React application built using Webpack 4 with HMR on a custom E
 ### Dependencies
 
 - `exract-text-webpack-plugin`: Use `^4.0.0-beta.0` - [webpack-contrib issue #46](https://github.com/webpack-contrib/extract-text-webpack-plugin/issues/701)
-
-### ES6
-
-- Does not currently support ES6 modules on the server

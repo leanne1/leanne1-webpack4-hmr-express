@@ -4,9 +4,10 @@
   "description": "Boilerplate for a React application built using Webpack 4 with HMR on a custom Express server",
   "main": "server/index.js",
   "scripts": {
-    "dev": "NODE_ENV=development babel-node server/index",
-    "prestart": "NODE_ENV=production webpack",
-    "start": "NODE_ENV=production node server/index"
+    "dev": "NODE_ENV=development babel-node src/server/index.js",
+    "dev:server": "NODE_ENV=development nodemon src/server/index.js --exec babel-node",
+    "prestart": "NODE_ENV=production webpack && babel src/server -d dist/server",
+    "start": "NODE_ENV=production node dist/server/index.js"
   },
   "author": "leanne1",
   "dependencies": {
@@ -21,9 +22,13 @@
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.4",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-1": "^6.24.1",
+    "babel-register": "^6.26.0",
+    "babel-runtime": "^6.26.0",
     "clean-webpack-plugin": "^0.1.19",
     "connect-history-api-fallback": "^1.5.0",
     "css-loader": "^1.0.0",

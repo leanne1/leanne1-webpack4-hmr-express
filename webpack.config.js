@@ -8,7 +8,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const isDev = process.env.NODE_ENV !== 'production';
 
 // Webpack entry points used in both dev and prod
-const commonEntries = ['babel-polyfill', './client/app/index.js'];
+const commonEntries = ['babel-polyfill', './src/client/app/index.js'];
 
 // Extract prebuilt (vendor) CSS into file if needed
 const extractCss = new ExtractTextPlugin({
@@ -26,7 +26,7 @@ const extractSass = new ExtractTextPlugin({
 const commonConfig = {
   output: {
     filename: 'main.[hash].js',
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'dist/client'),
     publicPath: '/',
   },
   // When symlinking a node_module package, make imports resolve to symlink
@@ -48,7 +48,7 @@ const commonConfig = {
       // Extract prebuilt CSS as a separate file if needed
       {
         test: /\.css$/,
-        include: path.resolve(__dirname, 'client/styles/vendor/vendor.css'),
+        include: path.resolve(__dirname, 'src/client/styles/vendor/vendor.css'),
         loader: extractCss.extract({
           fallback: 'style-loader',
           use: ['css-loader']
@@ -69,7 +69,7 @@ const commonConfig = {
     }),
     // Generate index html with built bundle paths injected
     new HtmlWebPackPlugin({
-      template: 'client/index.html',
+      template: 'src/client/index.html',
       filename: 'index.html'
     }),
     extractCss
