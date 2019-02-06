@@ -15,7 +15,7 @@ const extractCss = new ExtractTextPlugin({
   filename: 'vendor.[hash].css'
 });
 
-// Extract the Sass output into file
+// Extract the Sass output into a CSS file
 const extractSass = new ExtractTextPlugin({
   filename: 'style.[hash].css',
   disable: false,
@@ -89,7 +89,7 @@ const devConfig = {
           'style-loader',
           'css-loader',
           'postcss-loader',
-          'resolve-url-loader', // resolve url import paths in obd-ui Sass modules
+          'resolve-url-loader', // resolve url import paths in node_modules package Sass modules
           {
             loader: 'sass-loader',
             options: {
@@ -112,7 +112,7 @@ const prodConfig = {
   entry: commonEntries,
   module: {
     rules: [
-      // Build Sass modules into an separate css file
+      // Build Sass modules into a separate css file
       {
         test: /\.scss$/,
         use: extractSass.extract({
@@ -125,7 +125,7 @@ const prodConfig = {
               }
             },
             'postcss-loader',
-            'resolve-url-loader', // resolve url import paths in obd-ui Sass modules
+            'resolve-url-loader', // resolve url import paths in node_modules package Sass modules
             {
               loader: 'sass-loader',
               options: {
