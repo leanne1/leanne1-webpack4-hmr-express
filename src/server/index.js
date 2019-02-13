@@ -26,9 +26,6 @@ if (isDev) {
   app.use('/dist', express.static(clientDirPath));
 }
 
-// Frontend routes
-app.get('/', (req, res) => res.sendFile(`${clientDirPath}/index.html`));
-
 // Run app
 app.listen(port, err => {
   if (err) {
