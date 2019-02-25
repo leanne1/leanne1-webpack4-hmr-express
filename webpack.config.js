@@ -37,7 +37,7 @@ const commonConfig = {
   devtool: 'source-map',
   module: {
     rules: [
-      // Bundle JS using babel; include custom component library if needed
+      // Bundle JS using babel; include custom component library if needed; *always* exclude /node_modules
       {
         test: /\.js$/,
         exclude: /node_modules\/(?!custom-component-library)/,
